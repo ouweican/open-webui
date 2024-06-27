@@ -21,6 +21,16 @@ export default defineConfig({
 		APP_VERSION: JSON.stringify(process.env.npm_package_version),
 		APP_BUILD_HASH: JSON.stringify(process.env.APP_BUILD_HASH || 'dev-build')
 	},
+	server:{
+		proxy:{
+			'/llms':{
+				target: 'http://172.23.23.141:8080/',
+				changeOrigin: true,
+				ws: true,
+				rewrite: path => path.replace('/llms', '')
+			}
+		}
+	},
 	build: {
 		sourcemap: true
 	},

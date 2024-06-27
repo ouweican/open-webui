@@ -75,7 +75,7 @@
 
 			if ($config) {
 				const _socket = io(`${WEBUI_BASE_URL}`, {
-					path: '/ws/socket.io',
+					path: '/llms/ws/socket.io',
 					auth: { token: localStorage.token }
 				});
 

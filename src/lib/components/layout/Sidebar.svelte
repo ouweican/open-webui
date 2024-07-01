@@ -166,7 +166,7 @@
 	const saveSettings = async (updated) => {
 		await settings.set({ ...$settings, ...updated });
 		await updateUserSettings(localStorage.token, { ui: $settings });
-		location.href = '/';
+		location.href = '/llms/';
 	};
 
 	const deleteChatHandler = async (id) => {
@@ -179,7 +179,7 @@
 			if ($chatId === id) {
 				await chatId.set('');
 				await tick();
-				goto('/');
+				goto('/llms/');
 			}
 			await chats.set(await getChatList(localStorage.token));
 		}
@@ -221,7 +221,7 @@
 	id="sidebar"
 	class="h-screen max-h-[100dvh] min-h-screen select-none {$showSidebar
 		? 'md:relative w-[260px]'
-		: '-translate-x-[260px] w-[0px]'} bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-200 text-sm transition fixed z-50 top-0 left-0 rounded-r-2xl
+		: '-translate-x-[260px] w-[0px]'} bg-gradient-to-r from-[#e6e9f6] to-[#eeecf6] text-gray-900 dark:bg-gray-950 dark:text-gray-200 text-sm transition fixed z-50 top-0 left-0
         "
 	data-state={$showSidebar}
 >
@@ -233,12 +233,12 @@
 		<div class="px-2.5 flex justify-between space-x-1 text-gray-600 dark:text-gray-400">
 			<a
 				id="sidebar-new-chat-button"
-				class="flex flex-1 justify-between rounded-xl px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-850 transition"
-				href="/"
+				class="flex flex-1 justify-between rounded px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-850 transition"
+				href="/llms/"
 				draggable="false"
 				on:click={async () => {
 					selectedChatId = null;
-					await goto('/');
+					await goto('/llms/');
 					const newChatButton = document.getElementById('new-chat-button');
 					setTimeout(() => {
 						newChatButton?.click();
@@ -252,31 +252,16 @@
 					<img
 						crossorigin="anonymous"
 						src="{WEBUI_BASE_URL}/static/favicon.png"
-						class=" size-6 -translate-x-1.5 rounded-full"
-						alt="logo"
+						class=" size-10 -translate-x-1.5 rounded-full"
+						alt="favicon"
 					/>
 				</div>
-				<div class=" self-center font-medium text-sm text-gray-850 dark:text-white">
-					{$i18n.t('New Chat')}
-				</div>
-				<div class="self-center ml-auto">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 20 20"
-						fill="currentColor"
-						class="size-5"
-					>
-						<path
-							d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z"
-						/>
-						<path
-							d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z"
-						/>
-					</svg>
+				<div class="self-center font-medium text-sm text-white bg-gradient-to-r from-[#0c60f4] to-[#5813f3] hover:opacity-80 p-[7px] rounded">
+					+ {$i18n.t('New Chat')}
 				</div>
 			</a>
 
-			<button
+			<!-- <button
 				class=" cursor-pointer px-2 py-2 flex rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850 transition"
 				on:click={() => {
 					showSidebar.set(!$showSidebar);
@@ -298,14 +283,14 @@
 						/>
 					</svg>
 				</div>
-			</button>
+			</button> -->
 		</div>
 
 		{#if $user?.role === 'admin'}
 			<div class="px-2.5 flex justify-center text-gray-800 dark:text-gray-200">
 				<a
 					class="flex-grow flex space-x-3 rounded-xl px-2.5 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-					href="/workspace"
+					href="/llms/workspace"
 					on:click={() => {
 						selectedChatId = null;
 						chatId.set('');
@@ -385,7 +370,7 @@
 			{/if}
 
 			<div class="px-2 mt-0.5 mb-2 flex justify-center space-x-2">
-				<div class="flex w-full rounded-xl" id="chat-search">
+				<div class="flex w-full rounded border border-gray-300 mt-5" id="chat-search">
 					<div class="self-center pl-3 py-2 rounded-l-xl bg-transparent">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -493,7 +478,7 @@
 			</div>
 		</div>
 
-		<div class="px-2.5">
+		<div class="px-2.5" style="border-top: 1px solid #0f172a1a;">
 			<!-- <hr class=" border-gray-900 mb-1 w-full" /> -->
 
 			<div class="flex flex-col">
@@ -507,14 +492,14 @@
 						}}
 					>
 						<button
-							class=" flex rounded-xl py-3 px-3.5 w-full hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+							class=" flex rounded-xl py-3 px-3.5 w-full transition"
 							on:click={() => {
 								showDropdown = !showDropdown;
 							}}
 						>
 							<div class=" self-center mr-3">
 								<img
-									src={$user.profile_image_url}
+									src="/avatar.png"
 									class=" max-w-[30px] object-cover rounded-full"
 									alt="User profile"
 								/>
@@ -573,5 +558,9 @@
 	}
 	.scrollbar-hidden::-webkit-scrollbar-thumb {
 		visibility: hidden;
+	}
+	#sidebar-new-chat-button{
+		border: 1px solid #d9d9d9;
+		background-color: #e5dff6;
 	}
 </style>

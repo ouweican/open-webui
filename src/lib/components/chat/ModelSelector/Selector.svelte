@@ -207,7 +207,7 @@
 >
 	<DropdownMenu.Trigger class="relative w-full" aria-label={placeholder}>
 		<div
-			class="flex w-full text-left px-0.5 outline-none bg-transparent truncate text-lg font-semibold placeholder-gray-400 focus:outline-none"
+			class="flex w-[150px] text-left outline-none bg-transparent truncate text-lg font-semibold placeholder-gray-400 focus:outline-none border border-gray-200 px-2"
 		>
 			{#if selectedModel}
 				{selectedModel.label}

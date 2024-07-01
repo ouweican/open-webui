@@ -131,7 +131,7 @@
 			if (res) {
 				await models.set(await getModels(localStorage.token));
 				toast.success('Model created successfully!');
-				await goto('/workspace/models');
+				await goto('/llms/workspace/models');
 			}
 		}
 
@@ -273,7 +273,7 @@
 	<button
 		class="flex space-x-1"
 		on:click={() => {
-			goto('/workspace/models');
+			goto('/llms/workspace/models');
 		}}
 	>
 		<div class=" self-center">

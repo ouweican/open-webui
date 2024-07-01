@@ -35,7 +35,7 @@
 
 			if (prompt) {
 				await prompts.set(await getPrompts(localStorage.token));
-				await goto('/workspace/prompts');
+				await goto('/llms/workspace/prompts');
 			}
 		} else {
 			toast.error(

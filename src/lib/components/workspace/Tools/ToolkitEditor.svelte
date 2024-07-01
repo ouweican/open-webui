@@ -68,7 +68,7 @@
 				<button
 					class="flex space-x-1"
 					on:click={() => {
-						goto('/workspace/tools');
+						goto('/llms/workspace/tools');
 					}}
 					type="button"
 				>

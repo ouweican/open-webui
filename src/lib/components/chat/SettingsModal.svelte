@@ -95,7 +95,7 @@
 							? 'bg-gray-200 dark:bg-gray-700'
 							: ' hover:bg-gray-300 dark:hover:bg-gray-800'}"
 						on:click={async () => {
-							await goto('/admin/settings');
+							await goto('/llms/admin/settings');
 							show = false;
 						}}
 					>

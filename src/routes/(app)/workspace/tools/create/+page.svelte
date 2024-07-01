@@ -26,7 +26,7 @@
 			toast.success('Tool created successfully');
 			tools.set(await getTools(localStorage.token));
 
-			await goto('/workspace/tools');
+			await goto('/llms/workspace/tools');
 		}
 	};
 

@@ -23,11 +23,21 @@ export default defineConfig({
 	},
 	server:{
 		proxy:{
-			'/llms':{
-				target: 'http://172.23.23.141:8080/',
+			'/dev':{
+				target: 'http://172.23.23.145:8000/',
 				changeOrigin: true,
 				ws: true,
-				rewrite: path => path.replace('/llms', '')
+				rewrite: path => path.replace('/dev', '')
+			}
+		}
+	},
+	preview:{
+		proxy: {
+			'/dev':{
+				target: 'http://172.23.23.145:8000/',
+				changeOrigin: true,
+				ws: true,
+				rewrite: path => path.replace('/dev', '')
 			}
 		}
 	},

@@ -98,7 +98,7 @@
 		if (res) {
 			await models.set(await getModels(localStorage.token));
 			toast.success('Model updated successfully');
-			await goto('/workspace/models');
+			await goto('/llms/workspace/models');
 		}
 
 		loading = false;
@@ -157,10 +157,10 @@
 
 				console.log(model);
 			} else {
-				goto('/workspace/models');
+				goto('/llms/workspace/models');
 			}
 		} else {
-			goto('/workspace/models');
+			goto('/llms/workspace/models');
 		}
 	});
 </script>
@@ -234,7 +234,7 @@
 	<button
 		class="flex space-x-1"
 		on:click={() => {
-			goto('/workspace/models');
+			goto('/llms/workspace/models');
 		}}
 	>
 		<div class=" self-center">

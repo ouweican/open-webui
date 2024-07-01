@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Bolt from '$lib/components/icons/Bolt.svelte';
 	import { onMount, getContext } from 'svelte';
+	import Tooltip from '../../common/Tooltip.svelte';
 
 	const i18n = getContext('i18n');
 
@@ -39,15 +40,15 @@
 	</div>
 {/if}
 
-<div class="w-full">
+<div class="w-full relative">
 	<div
-		class="relative w-full flex gap-2 snap-x snap-mandatory md:snap-none overflow-x-auto tabs"
+		class="relative w-full flex gap-4 snap-x snap-mandatory md:snap-none overflow-x-auto tabs"
 		id="suggestions-container"
 	>
 		{#each prompts as prompt, promptIdx}
 			<div class="snap-center shrink-0">
 				<button
-					class="flex flex-col flex-1 shrink-0 w-64 justify-between h-36 p-5 px-6 bg-gray-50 hover:bg-gray-100 dark:bg-gray-850 dark:hover:bg-gray-800 rounded-3xl transition group"
+					class="flex flex-col flex-1 shrink-0 w-64 justify-between h-36 p-5 px-6 bg-gradient-to-b from-[#f4f3fe] to-[#f6f9ff] dark:bg-gray-850 dark:hover:bg-gray-800 rounded transition group"
 					on:click={() => {
 						submitPrompt(prompt.content);
 					}}
@@ -103,6 +104,11 @@
 			src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=320&amp;h=160&amp;q=80"
 		/>
 	</div> -->
+	</div>
+	<div class="bg-gradient-to-r from-transparent via-white/90 pl-10 to-white/90 absolute right-0 top-0 h-full w-20 flex items-center justify-center">
+		<Tooltip content=滚动鼠标中键可查看更多>
+			<svg class="size-6" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M525.056 0a340.8 340.8 0 0 1 339.968 326.272l0.256 14.016v342.592a340.736 340.736 0 0 1-326.208 339.968l-14.08 0.256h-29.312a340.736 340.736 0 0 1-339.968-326.208l-0.256-14.08V340.352A340.736 340.736 0 0 1 481.728 0.256L495.68 0h29.376zM521.6 94.208h-22.592c-144.32 0-261.76 128.256-261.76 285.952v262.848c0 157.632 117.44 285.952 261.76 285.952h22.592c144.32 0 261.76-128.32 261.76-285.952V380.16c-0.064-157.696-117.44-285.952-261.76-285.952zM512 128a64 64 0 0 1 64 64v256a64 64 0 1 1-128 0V192a64 64 0 0 1 64-64z"></path></svg>
+		</Tooltip>
 	</div>
 </div>
 

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getAdminDetails } from '$lib/apis/auths';
 	import { onMount, tick, getContext } from 'svelte';
+	import { notIframe } from '$lib/stores';
 
 	const i18n = getContext('i18n');
 
@@ -42,19 +43,20 @@
 					<button
 						class="relative z-20 flex px-5 py-2 rounded-full bg-white border border-gray-100 dark:border-none hover:bg-gray-100 text-gray-700 transition font-medium text-sm"
 						on:click={async () => {
-							location.href = '/';
+							location.href = '/llms/';
 						}}
 					>
 						{$i18n.t('Check Again')}
 					</button>
-
+					{#if $notIframe}
 					<button
 						class="text-xs text-center w-full mt-2 text-gray-400 underline"
 						on:click={async () => {
 							localStorage.removeItem('token');
-							location.href = '/auth';
+							location.href = '/llms/auth';
 						}}>{$i18n.t('Sign Out')}</button
 					>
+					{/if}
 				</div>
 			</div>
 		</div>

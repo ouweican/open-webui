@@ -1,10 +1,10 @@
 import { browser, dev } from '$app/environment';
 // import { version } from '../../package.json';
 
-export const APP_NAME = 'Open WebUI';
+export const APP_NAME = '星智';
 
-export const WEBUI_HOSTNAME = browser ? (dev ? `/llms` : `/llms`) : '/llms';
-export const WEBUI_BASE_URL = browser ? (dev ? `${WEBUI_HOSTNAME}` : `${WEBUI_HOSTNAME}`) : `${WEBUI_HOSTNAME}`;
+export const WEBUI_HOSTNAME = browser ? (dev ? `http://${location.hostname}:5173/dev` : ``) : '';
+export const WEBUI_BASE_URL = browser ? (dev ? `${WEBUI_HOSTNAME}` : `/llms`) : ``;
 export const WEBUI_API_BASE_URL = `${WEBUI_BASE_URL}/api/v1`;
 
 export const OLLAMA_API_BASE_URL = `${WEBUI_BASE_URL}/ollama`;

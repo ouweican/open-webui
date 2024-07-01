@@ -16,7 +16,7 @@ const config = {
 			fallback: 'index.html'
 		}),
 		paths:{
-			// base: '/llms'
+			base: '/llms'
 		}
 	},
 	onwarn: (warning, handler) => {

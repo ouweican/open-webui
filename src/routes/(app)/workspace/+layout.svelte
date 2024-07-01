@@ -46,21 +46,21 @@
 				class="min-w-fit rounded-lg p-1.5 px-3 {$page.url.pathname.includes('/workspace/models')
 					? 'bg-gray-50 dark:bg-gray-850'
 					: ''} transition"
-				href="/workspace/models">{$i18n.t('Models')}</a
+				href="/llms/workspace/models">{$i18n.t('Models')}</a
 			>
 
 			<a
 				class="min-w-fit rounded-lg p-1.5 px-3 {$page.url.pathname.includes('/workspace/prompts')
 					? 'bg-gray-50 dark:bg-gray-850'
 					: ''} transition"
-				href="/workspace/prompts">{$i18n.t('Prompts')}</a
+				href="/llms/workspace/prompts">{$i18n.t('Prompts')}</a
 			>
 
 			<a
 				class="min-w-fit rounded-lg p-1.5 px-3 {$page.url.pathname.includes('/workspace/documents')
 					? 'bg-gray-50 dark:bg-gray-850'
 					: ''} transition"
-				href="/workspace/documents"
+				href="/llms/workspace/documents"
 			>
 				{$i18n.t('Documents')}
 			</a>
@@ -69,7 +69,7 @@
 				class="min-w-fit rounded-lg p-1.5 px-3 {$page.url.pathname.includes('/workspace/tools')
 					? 'bg-gray-50 dark:bg-gray-850'
 					: ''} transition"
-				href="/workspace/tools"
+				href="/llms/workspace/tools"
 			>
 				{$i18n.t('Tools')}
 			</a>
@@ -78,7 +78,7 @@
 				class="min-w-fit rounded-lg p-1.5 px-3 {$page.url.pathname.includes('/workspace/playground')
 					? 'bg-gray-50 dark:bg-gray-850'
 					: ''} transition"
-				href="/workspace/playground">{$i18n.t('Playground')}</a
+				href="/llms/workspace/playground">{$i18n.t('Playground')}</a
 			>
 		</div>
 	</div>

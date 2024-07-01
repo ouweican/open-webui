@@ -39,7 +39,7 @@
 
 <ShareChatModal bind:show={showShareChatModal} chatId={$chatId} />
 <nav id="nav" class=" sticky py-2.5 top-0 flex flex-row justify-center z-30">
-	<div class=" flex max-w-full w-full mx-auto px-5 pt-0.5 md:px-[1rem]">
+	<div class=" flex max-w-full w-full mx-auto px-5 pt-0.5 md:px-[1rem] max-h-[300px] overflow-auto">
 		<div class="flex items-center w-full max-w-full">
 			<div
 				class="{$showSidebar
@@ -129,7 +129,7 @@
 					</button>
 				</Tooltip>
 
-				{#if $user !== undefined}
+				<!-- {#if $user !== undefined}
 					<UserMenu
 						className="max-w-[200px]"
 						role={$user.role}
@@ -153,7 +153,7 @@
 							</div>
 						</button>
 					</UserMenu>
-				{/if}
+				{/if} -->
 			</div>
 		</div>
 	</div>

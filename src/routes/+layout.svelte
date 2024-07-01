@@ -75,7 +75,7 @@
 
 			if ($config) {
 				const _socket = io(`${WEBUI_BASE_URL}`, {
-					path: '/llms/ws/socket.io',
+					path: `${WEBUI_BASE_URL}/ws/socket.io`,
 					auth: { token: localStorage.token }
 				});
 
@@ -108,15 +108,15 @@
 					} else {
 						// Redirect Invalid Session User to /auth Page
 						localStorage.removeItem('token');
-						await goto('/auth');
+						await goto('/llms/auth');
 					}
 				} else {
-					await goto('/auth');
+					await goto('/llms/auth');
 				}
 			}
 		} else {
 			// Redirect to /error when Backend Not Detected
-			await goto(`/error`);
+			await goto(`/llms/error`);
 		}
 
 		await tick();

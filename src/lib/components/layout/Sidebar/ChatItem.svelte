@@ -50,7 +50,7 @@
 		});
 
 		if (res) {
-			goto(`/c/${res.id}`);
+			goto(`/llms/c/${res.id}`);
 			await chats.set(await getChatList(localStorage.token));
 		}
 	};
@@ -70,11 +70,11 @@
 <div class=" w-full pr-2 relative group">
 	{#if confirmEdit}
 		<div
-			class=" w-full flex justify-between rounded-xl px-3 py-2 {chat.id === $chatId || confirmEdit
-				? 'bg-gray-200 dark:bg-gray-900'
+			class=" w-full flex justify-between rounded px-3 py-2 {chat.id === $chatId || confirmEdit
+				? 'bg-white/80 dark:bg-gray-900'
 				: selected
-				? 'bg-gray-100 dark:bg-gray-950'
-				: 'group-hover:bg-gray-100 dark:group-hover:bg-gray-950'}  whitespace-nowrap text-ellipsis"
+				? 'bg-white/80 dark:bg-gray-950'
+				: 'group-hover:bg-white dark:group-hover:bg-gray-950'}  whitespace-nowrap text-ellipsis"
 		>
 			<input
 				use:focusEdit
@@ -84,12 +84,12 @@
 		</div>
 	{:else}
 		<a
-			class=" w-full flex justify-between rounded-xl px-3 py-2 {chat.id === $chatId || confirmEdit
-				? 'bg-gray-200 dark:bg-gray-900'
+			class=" w-full flex justify-between rounded px-3 py-2 {chat.id === $chatId || confirmEdit
+				? 'bg-white/80 dark:bg-gray-900'
 				: selected
-				? 'bg-gray-100 dark:bg-gray-950'
-				: ' group-hover:bg-gray-100 dark:group-hover:bg-gray-950'}  whitespace-nowrap text-ellipsis"
-			href="/c/{chat.id}"
+				? 'bg-white/80 dark:bg-gray-950'
+				: ' group-hover:bg-white dark:group-hover:bg-gray-950'}  whitespace-nowrap text-ellipsis"
+			href="/llms/c/{chat.id}"
 			on:click={() => {
 				dispatch('select');
 
@@ -122,10 +122,10 @@
 	<div
 		class="
         {chat.id === $chatId || confirmEdit
-			? 'from-gray-200 dark:from-gray-900'
+			? 'from-white dark:from-gray-900'
 			: selected
-			? 'from-gray-100 dark:from-gray-950'
-			: 'invisible group-hover:visible from-gray-100 dark:from-gray-950'}
+			? 'from-white dark:from-gray-950'
+			: 'invisible group-hover:visible from-white dark:from-gray-950'}
             absolute right-[10px] top-[10px] pr-2 pl-5 bg-gradient-to-l from-80%
 
               to-transparent"

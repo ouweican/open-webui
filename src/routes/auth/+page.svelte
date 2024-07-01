@@ -25,7 +25,7 @@
 
 			$socket.emit('user-join', { auth: { token: sessionUser.token } });
 			await user.set(sessionUser);
-			goto('/');
+			goto('/llms/');
 		}
 	};
 
@@ -59,7 +59,7 @@
 
 	onMount(async () => {
 		if ($user !== undefined) {
-			await goto('/');
+			await goto('/llms/');
 		}
 		loaded = true;
 		if (($config?.features.auth_trusted_header ?? false) || $config?.features.auth === false) {
@@ -82,7 +82,7 @@
 					crossorigin="anonymous"
 					src="{WEBUI_BASE_URL}/static/favicon.png"
 					class=" w-8 rounded-full"
-					alt="logo"
+					alt="favicon"
 				/>
 			</div>
 		</div>

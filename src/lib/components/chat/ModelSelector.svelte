@@ -36,7 +36,7 @@
 
 <div class="flex flex-col w-full items-center md:items-start">
 	{#each selectedModels as selectedModel, selectedModelIdx}
-		<div class="flex w-full max-w-fit">
+		<div class="flex w-full max-w-fit items-center mb-2">
 			<div class="overflow-hidden w-full">
 				<div class="mr-1 max-w-full">
 					<Selector
@@ -52,7 +52,7 @@
 			</div>
 
 			{#if selectedModelIdx === 0}
-				<div class="  self-center mr-2 disabled:text-gray-600 disabled:hover:text-gray-600">
+				<div class="  self-center mr-2 disabled:text-gray-600 disabled:hover:text-gray-600 p-2 bg-gray-200">
 					<Tooltip content={$i18n.t('Add Model')}>
 						<button
 							class=" "
@@ -75,7 +75,7 @@
 					</Tooltip>
 				</div>
 			{:else}
-				<div class="  self-center disabled:text-gray-600 disabled:hover:text-gray-600 mr-2">
+				<div class="  self-center disabled:text-gray-600 disabled:hover:text-gray-600 mr-2 p-2 bg-gray-200">
 					<Tooltip content={$i18n.t('Remove Model')}>
 						<button
 							{disabled}

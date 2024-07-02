@@ -499,7 +499,7 @@
 						>
 							<div class=" self-center mr-3">
 								<img
-									src="/avatar.png"
+									src="${WEBUI_BASE_URL}/avatar.png"
 									class=" max-w-[30px] object-cover rounded-full"
 									alt="User profile"
 								/>

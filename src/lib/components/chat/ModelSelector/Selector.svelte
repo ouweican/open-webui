@@ -207,13 +207,15 @@
 >
 	<DropdownMenu.Trigger class="relative w-full" aria-label={placeholder}>
 		<div
-			class="flex w-[150px] text-left outline-none bg-transparent truncate text-lg font-semibold placeholder-gray-400 focus:outline-none border border-gray-200 px-2"
+			class="flex justify-between w-[150px] text-left outline-none bg-transparent truncate text-lg font-semibold placeholder-gray-400 focus:outline-none border border-gray-200 px-2"
 		>
-			{#if selectedModel}
-				{selectedModel.label}
-			{:else}
-				{placeholder}
-			{/if}
+			<span class="basis-5/6 w-0 overflow-hidden">
+				{#if selectedModel}
+					{selectedModel.label}
+				{:else}
+					{placeholder}
+				{/if}
+			</span>
 			<ChevronDown className=" self-center ml-2 size-3" strokeWidth="2.5" />
 		</div>
 	</DropdownMenu.Trigger>
